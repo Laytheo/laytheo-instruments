@@ -1,4 +1,4 @@
-# sermon-guide
+# Sermon to Small Group Guide
 
 A Claude skill that turns a sermon transcript into a small group discussion guide.
 
@@ -51,6 +51,6 @@ Dual-licensed. Prose and methodology under [CC BY 4.0](../../LICENSE-CC-BY-4.0);
 
 When using or adapting prose or methodology from this project, attribute as follows:
 
-> *sermon-guide, by Laytheo (https://laytheo.com), licensed under CC BY 4.0.*
+> *Sermon to Small Group Guide, by Laytheo (https://laytheo.com), licensed under CC BY 4.0.*
 
 If the work has been modified, indicate that changes were made.
