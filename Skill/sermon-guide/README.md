@@ -47,4 +47,4 @@ Early, working draft. Originally tuned and tested for a single congregation. Pen
 
 ## License
 
-[Add your preferred license here.]
+The prose and methodology in this repository are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The templates and skill files are licensed under [MIT](./LICENSE). Adapt freely. Attribution to laytheo.com is appreciated.
