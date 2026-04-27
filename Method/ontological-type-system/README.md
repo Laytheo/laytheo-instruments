@@ -230,7 +230,13 @@ The method takes about two weeks to feel natural and several months to start for
 
 ## License
 
-The prose and methodology in this repository are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The templates and skill files are licensed under [MIT](./LICENSE). Adapt freely. Attribution to laytheo.com is appreciated.
+Dual-licensed. Prose and methodology under [CC BY 4.0](../../LICENSE-CC-BY-4.0); code, templates, and schemas under [MIT](../../LICENSE). See [`LICENSING.md`](../../LICENSING.md) for the boundary and the full text of each license.
+
+When using or adapting prose or methodology from this project, attribute as follows:
+
+> *The Ontological Type System, by Laytheo (https://laytheo.com), licensed under CC BY 4.0.*
+
+If the work has been modified, indicate that changes were made.
 
 ## A Note on Origins
 
