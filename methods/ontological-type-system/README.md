@@ -2,7 +2,7 @@
 
 A classical realist method for organizing a personal knowledge vault in Obsidian. Six root types, atomic notes, dense semantic linking, and the daily journal as narrative spine.
 
-This repository contains the practical reference for the system: the schema, the templates, worked examples, and an optional Claude skill for generating note stubs. The philosophical case for the method lives in a longer essay at [laytheo.com/instruments/ontological-type-system](https://laytheo.com/instruments/ontological-type-system). If you have not read that essay, start there. The system is not really about software; it is about a posture toward reality, and the schema only makes sense once the posture is established.
+This document is the practical reference for the system: the schema, a worked example, and pointers to a companion [Claude skill](../../skills/ots-stub-skill/) for generating note stubs. The philosophical case for the method lives in a longer essay at [laytheo.com/instruments/ontological-type-system](https://laytheo.com/instruments/ontological-type-system). If you have not read that essay, start there. The system is not really about software; it is about a posture toward reality, and the schema only makes sense once the posture is established.
 
 ## The Posture in One Paragraph
 
@@ -21,7 +21,7 @@ The system organizes every note under one of six root types. The set is closed b
 | `[[Idea]]` | An abstraction, concept, phenomenon, or instrument of thought. |
 | `[[Journal]]` | One's own dated witness of reality. The daily note. |
 
-Subtypes are an open frontier. If you find yourself making many notes of a particular flavor under an existing type, add a subtype freely. Composition under Work. Doctrine under Idea. Battle under Event. The default templates in this repo include three: `dream` (Journal), `lexeme` (Idea), and `sermon` (Event). Add your own.
+Subtypes are an open frontier. If you find yourself making many notes of a particular flavor under an existing type, add a subtype freely. Composition under Work. Doctrine under Idea. Battle under Event. The author has found `dream` (Journal), `lexeme` (Idea), and `sermon` (Event) useful. Add your own.
 
 Types are closed by design. The six root types encode a deliberate posture, and adding a seventh changes what the vault is for. Most candidates that come to mind on first encounter, like Project or Topic or Goal, fail to name a kind of thing that does not reduce to one of the six. Before adding a seventh type, make sure the candidate truly names a kind of thing that does not reduce to any of the existing six. The answer is almost always no.
 
@@ -167,9 +167,9 @@ The discipline of daily journaling is not optional for the system to work as des
 
 Two pipelines, both targeting the same canonical schema.
 
-**Manual templates.** For personal entities (people you know, places you go, events from your own life), use Obsidian's template feature directly. Trigger a template, fill in the fields, save. This keeps personal content entirely local. No AI tool ever sees your friend's note, your family's note, the note about a private conversation. The templates in `templates/` are ready to drop into your vault's templates folder.
+**Manual templates.** For personal entities (people you know, places you go, events from your own life), use Obsidian's template feature directly. Trigger a template, fill in the fields, save. This keeps personal content entirely local. No AI tool ever sees your friend's note, your family's note, the note about a private conversation. Build templates that mirror the schema described above; the field lists in the worked example are a workable starting point.
 
-**AI-assisted stubs.** For public or historical entities (biblical figures, theologians, philosophical concepts, published works, historical events), an AI assistant can produce schema-conformant stubs in seconds. The schema is the contract; the AI fills in the template you designed. This repository includes a [Claude skill](./SKILL.md) that teaches Claude to produce stubs in the system's format. Adapt it for whatever AI tool you prefer, or skip this pipeline entirely and use templates throughout.
+**AI-assisted stubs.** For public or historical entities (biblical figures, theologians, philosophical concepts, published works, historical events), an AI assistant can produce schema-conformant stubs in seconds. The schema is the contract; the AI fills in the template you designed. A companion [Claude skill](../../skills/ots-stub-skill/) teaches Claude to produce stubs in the system's format. Adapt it for whatever AI tool you prefer, or skip this pipeline entirely and use templates throughout.
 
 The split is principled. Personal content stays local for privacy. Public content gets accelerated for speed. The schema enforces consistency across both pipelines, so the AI-generated note and the manually-templated note are interchangeable in the graph.
 
@@ -181,51 +181,24 @@ Some elements of a working vault are not part of the core system. They are optio
 
 **General principle**: do not add metadata you will not query. Every field in your frontmatter is a small tax on every note you create. Fields that pay rent are fields you actively use to find, group, or reason about notes. Fields that do not pay rent should be cut.
 
-## What Is in This Repository
-
-```
-ontological-type-system/
-├── README.md                # This file
-├── SKILL.md                 # Claude skill for AI-assisted stubs
-├── templates/               # Obsidian templates for manual use
-│   ├── person.md
-│   ├── place.md
-│   ├── work.md
-│   ├── event.md
-│   ├── idea.md
-│   ├── journal.md
-│   ├── dream.md             # journal subtype
-│   ├── lexeme.md            # idea subtype
-│   └── sermon.md            # event subtype
-├── examples/                # One worked example per type
-│   ├── person-tolkien.md
-│   ├── place-oxford.md
-│   ├── work-the-lord-of-the-rings.md
-│   ├── event-publication-fellowship.md
-│   ├── idea-subcreation.md
-│   └── journal-sample.md
-└── LICENSE
-```
-
-The templates ship with reasonable defaults. Treat them as starting points, not as canon. Customize the field lists for your own life. The closed parts of the system are the six types and the posture; the open parts are everything else.
-
 ## Adopting the System
 
 If you want to try this method, here is a reasonable order of operations.
 
 1. Read the [essay at laytheo.com](https://laytheo.com/instruments/ontological-type-system). The schema will not survive contact with your life if the posture is not in place.
 2. Set up a fresh Obsidian vault, or designate a section of an existing one for this experiment.
-3. Copy the templates from `templates/` into your vault's templates folder. Customize the field lists if you already know what you want to track.
-4. Make six notes by hand: one of each type. Use the examples in `examples/` as references. Do not skip Journal; start your daily note today.
+3. Set up templates in your vault for each of the six types using the schema above. Customize the field lists if you already know what you want to track.
+4. Make six notes by hand: one of each type. Use the worked example earlier in this README as a reference. Do not skip Journal; start your daily note today.
 5. Use the system for two weeks before adding any subtypes or optional fields. Let the friction of actual use teach you what is missing and what is excess.
 6. If the system is serving you, formalize it: add subtypes you have discovered you need, customize templates, optionally add the `state` field if you will use it.
-7. If you want AI-assisted stubs for public entities, install the [Claude skill](./SKILL.md) or adapt it for your tool of choice.
+7. If you want AI-assisted stubs for public entities, install the companion [Claude skill](../../skills/ots-stub-skill/) or adapt it for your tool of choice.
 
 The method takes about two weeks to feel natural and several months to start forming the practitioner. There is no shortcut. The vault is a slow instrument.
 
 ## Further Reading
 
 - The original essay: [Ontological Type System](https://laytheo.com/instruments/ontological-type-system) at laytheo.com
+- The companion skill page: [OTS Stub Skill](https://laytheo.com/instruments/ots-stub-skill) at laytheo.com
 - Other instruments and writing: [laytheo.com](https://laytheo.com)
 
 ## License

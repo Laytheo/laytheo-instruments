@@ -5,7 +5,7 @@ description: Generate Obsidian vault note stubs that conform to the Ontological 
 
 # Ontological Type System
 
-This skill produces Obsidian vault notes that conform to the Ontological Type System, a classical realist method for personal knowledge management. The full methodology is described at [laytheo.com/instruments/ontological-type-system](https://laytheo.com/instruments/ontological-type-system) and in the project's [README](./README.md). Read those before adopting the method itself; this skill assumes the user has already chosen to use the system and just needs help producing notes quickly.
+This skill produces Obsidian vault notes that conform to the Ontological Type System, a classical realist method for personal knowledge management. The full methodology is described at [laytheo.com/instruments/ontological-type-system](https://laytheo.com/instruments/ontological-type-system) and in the [method README](../../methods/ontological-type-system/README.md). Read those before adopting the method itself; this skill assumes the user has already chosen to use the system and just needs help producing notes quickly.
 
 ## What the system commits to
 
