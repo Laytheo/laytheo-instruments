@@ -9,6 +9,8 @@ This repository is dual-licensed.
 
 The general rule: `.md` files containing prose or methodology are CC BY 4.0; all other files are MIT.
 
+A pack subdirectory under `Pack/` may carry its own `LICENSE` file. Where present, that file governs the contents of the pack and supersedes the repo-level defaults above.
+
 ## Attribution (required for CC BY 4.0 material)
 
 CC BY 4.0 requires attribution. When using or adapting prose or methodology from this repository, attribute as follows:
