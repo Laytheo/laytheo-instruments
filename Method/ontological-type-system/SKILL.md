@@ -40,7 +40,7 @@ Every stub the skill produces follows these rules. They are not optional.
 
 **Empty fields are fine.** When a field doesn't apply or the answer is unknown, leave it blank rather than fabricating. A historical figure's `email` field stays empty. An obscure work's `publication_year` stays empty if uncertain. The schema tolerates blanks; it does not tolerate hallucinations.
 
-**Wikilinked associations.** The `associations` field (and any other list field that points at entities) holds wikilinked references to related notes the user may also want in their vault. Pick associations that are themselves real entities the user is likely to encounter, not abstract topics.
+**Wikilink only entities of independent note.** Relational list fields (`associations`, `spouses`, `partners`, `children`, `parents`, `participants`, `key_people`, `creator`, etc.) hold references to other entities. Only wikilink an entity if it plausibly merits its own note in the user's vault, meaning a person, place, or work of independent public, historical, or intellectual significance. Private family members (minor children, non-public parents and spouses, friends not otherwise notable) stay as plain text strings. The vault is built on real connections, not orphan stubs; a wikilink is a promise that the target is worth a note. When in doubt, default to plain text and let the user upgrade to a wikilink later. The same logic governs `associations`: wikilink real entities the user is likely to encounter, not abstract topics.
 
 ## The six type templates
 
@@ -66,7 +66,7 @@ created: YYYY-MM-DD
 ---
 ```
 
-Notes on Person: `subtype` examples include `"[[Theologian]]"`, `"[[Philosopher]]"`, `"[[Author]]"`, `"[[Scientist]]"`. `roles` is a list of plain strings (lowercase, e.g., `bishop`, `novelist`, `professor`). `spouses`, `partners`, `children`, `parents` are wikilinks to other Person notes. Use `partners` for non-marital relationships. Omit fields entirely (don't just leave blank) if they would never apply to the entity in question (e.g., omit `spouses` for someone who never married, rather than leaving it as `[]`).
+Notes on Person: `subtype` examples include `"[[Theologian]]"`, `"[[Philosopher]]"`, `"[[Author]]"`, `"[[Scientist]]"`. `roles` is a list of plain strings (lowercase, e.g., `bishop`, `novelist`, `professor`). `spouses`, `partners`, `children`, `parents` reference other people; wikilink them only when the related person is of independent note (a published author, a public figure, a historically documented relation), and use plain text otherwise. Private family members (minor children, non-public parents and spouses) stay as plain strings. Use `partners` for non-marital relationships. Omit fields entirely (don't just leave blank) if they would never apply to the entity in question (e.g., omit `spouses` for someone who never married, rather than leaving it as `[]`).
 
 ### Place
 
