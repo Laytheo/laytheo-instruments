@@ -9,7 +9,7 @@ church:
   name: "Example Community Church"
 
   # City and state/region/country, shown in the colophon at the end of the guide.
-  # Example: "a US city" or "Edinburgh, Scotland".
+  # Example: "Springfield, Illinois" or "Edinburgh, Scotland".
   location: "City, State"
 
 theme:

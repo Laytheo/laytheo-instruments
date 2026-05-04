@@ -161,7 +161,7 @@ In any new conversation with Claude:
    will recognize that it's a sermon and produce the guide.
 3. When you see the guide, take a moment to read it. If you want to change
    anything, say so in plain English: "make question 3 less pointed,"
-   "add a question about prayer," "the pastor's name is the pastor, not
+   "add a question about prayer," "the pastor is named Pat Smith, not
    what you guessed."
 4. When the guide looks right, ask for the PDF. Just say "make the PDF" or
    "render this guide." Claude will use the second skill and hand you back

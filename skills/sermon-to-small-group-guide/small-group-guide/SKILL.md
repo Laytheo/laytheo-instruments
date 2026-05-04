@@ -140,6 +140,6 @@ These are the failure modes that make AI sermon guides feel useless. Avoid them:
 Sermon transcripts are often auto-generated and messy: missing punctuation, garbled proper nouns, no speaker labels, repeated filler words, sometimes auto-translated from a different language. Work with what's there:
 
 - If a quoted source is mangled (e.g., "Bond Hoffer"), use your judgment to identify it (Bonhoeffer) and render it correctly. If you're not confident, render it phonetically and flag it parenthetically.
-- If proper nouns appear in another language because of auto-translation (e.g., a sermon transcript that was OCR'd in Spanish translates "Achan" as "Eakon" or "a local church" as "Hewland Street"), render them in their standard English forms.
+- If proper nouns appear in another language because of auto-translation (e.g., a sermon transcript that was OCR'd in Spanish translates "Achan" as "Eakon" or "Wheaton" as "Wheton"), render them in their standard English forms.
 - If you can't tell whether something is a quote, an anecdote, or a riff, mark it as a "moment" rather than miscategorizing it.
 - If the transcript is too fragmentary to identify a coherent sermon arc, say so plainly at the top of the output and produce what you can.
