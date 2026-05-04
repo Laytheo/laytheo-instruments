@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }} — {{ church_name }}</title>
+  {% if google_fonts_url %}<link rel="stylesheet" href="{{ google_fonts_url }}">{% endif %}
+  <style>{{ stylesheet }}</style>
+  {% if tighten_overrides %}<style>{{ tighten_overrides }}</style>{% endif %}
+</head>
+<body>
+
+<header class="masthead">
+  {% if logo_data_uri %}
+    <img src="{{ logo_data_uri }}" class="logo" alt="{{ church_name }}">
+  {% else %}
+    <span class="wordmark">{{ church_name }}</span>
+  {% endif %}
+  <span class="meta-eyebrow">{{ masthead_eyebrow }}</span>
+</header>
+
+<section class="title-block">
+  <p class="title-eyebrow">This Week &middot; {{ scripture }}</p>
+  <h1 class="title">{{ title }}</h1>
+  <p class="byline">
+    Preached by {{ preacher }}{% if date_label %} on {{ date_label }}{% endif %} &nbsp;|&nbsp; {{ scripture }}
+  </p>
+</section>
+
+<h2 class="section">This week's big idea</h2>
+<div class="big-idea">
+  {{ big_idea_html|safe }}
+</div>
+
+<h2 class="section">Theological anchor points</h2>
+<ul class="anchors">
+{% for anchor in anchors %}
+  <li>{{ anchor|safe }}</li>
+{% endfor %}
+</ul>
+
+<h2 class="section">Discussion questions</h2>
+<ol class="questions">
+{% for question in questions %}
+  <li>{{ question|safe }}</li>
+{% endfor %}
+</ol>
+
+<h2 class="section">Sermon walk-through</h2>
+<div class="walkthrough">
+  {{ walkthrough_html|safe }}
+</div>
+
+<div class="colophon">
+  <span class="colophon-name">{{ church_name }}</span> &middot; <span class="colophon-place">{{ church_location }}</span>
+</div>
+
+</body>
+</html>

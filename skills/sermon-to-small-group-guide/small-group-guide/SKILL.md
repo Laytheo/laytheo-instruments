@@ -1,5 +1,5 @@
 ---
-name: sermon-to-small-group-guide
+name: small-group-guide
 description: Convert a sermon transcript into a small group discussion guide for a local church. Use this skill whenever a user provides a sermon transcript (or refers to "the sermon," "this week's message," "Sunday's preaching") and wants discussion questions, small group materials, recap notes, or anything a community group leader would use during the week. Trigger this even if the user just pastes a transcript without explicit instructions; the most likely intent is a small group guide. The skill is tuned to preserve the preacher's voice, distinctive illustrations, and named sources rather than flattening the sermon into a generic theological summary.
 ---
 
@@ -11,15 +11,20 @@ Most AI-generated small group guides fail in the same way: they read like a theo
 
 This skill produces a guide that does the opposite: it anchors itself in the **actual flow and texture of the sermon**, then derives the theology and questions from there.
 
-## Church context
+## Church context (REQUIRED)
 
-This skill performs best when calibrated to a specific local church. Before adopting this skill in your own context, fill in the following block. Without these, the skill will produce a guide tuned to a generic Protestant default, which is usable but less faithful to your congregation's voice.
+This skill performs best when calibrated to a specific local church. **Before using this skill, fill in `church-context.md` in this folder.** The skill reads that file at runtime and uses its values to calibrate language, identify the speaker, and match congregational vocabulary.
 
-- **Tradition:** [e.g., Reformed Baptist, Anglican, Methodist, Pentecostal, non-denominational evangelical]
-- **Primary teaching pastor:** [Name; note other elders or regular guest preachers, and identify the speaker from the transcript when possible]
-- **Congregational vocabulary:** [Phrases your church uses regularly, e.g., "the gospel," "the Lord," "brothers and sisters," "covenant community," "the Word"]
-- **Theological frame:** [Distinctive emphases, e.g., Scripture as authoritative; Christ-centered preaching; emphasis on grace, sanctification, and life-on-life discipleship]
-- **Audience for the guide:** [Most often small group / community group leaders, mostly lay leaders, facilitating discussion in homes during the week — adjust if your context is different]
+If `church-context.md` is missing or unfilled, the skill will produce a guide tuned to a generic Protestant default, which is usable but less faithful to your congregation's voice. The skill will warn you when this happens.
+
+The fields in `church-context.md`:
+
+- **Church name and location** — for the byline and any contextual references
+- **Tradition** — e.g., Reformed Baptist, Anglican, Methodist, Pentecostal, non-denominational evangelical
+- **Primary teaching pastor** — name; note other elders or regular guest preachers, and identify the speaker from the transcript when possible
+- **Congregational vocabulary** — phrases your church uses regularly (e.g., "the gospel," "the Lord," "brothers and sisters," "covenant community," "the Word")
+- **Theological frame** — distinctive emphases (e.g., Scripture as authoritative; Christ-centered preaching; emphasis on grace, sanctification, life-on-life discipleship)
+- **Audience for the guide** — most often small group / community group leaders, mostly lay leaders, facilitating discussion in homes during the week
 
 Calibrate language to match this context. Avoid academic jargon, ecumenical hedging, or generic "spiritual" framing that could come from any tradition.
 
@@ -98,14 +103,23 @@ Personality callouts and non-Scripture quote callouts should average **no more t
 
 ## Length target
 
-**Aim for 600-800 words total. Hard cap at 800.** This is a one-and-a-half to two page guide. Long enough to give the leader real material; short enough to scan before group starts.
+The guide is published as a 2-page printed handout. The companion `church-pdf-render` skill handles the layout and includes an auto-tighten retry that absorbs small length variance.
 
-If a sermon is unusually thin, you may go shorter. If a sermon is unusually rich, do not exceed 800 words; instead, cut a discussion question or compress a walk-through paragraph. Density beats comprehensiveness. Cut the third "anchor point" before you cut a personality callout from the walk-through.
+**Operationally: aim for ~900 words total, with a soft ceiling around 1,100.**
+
+That's the band where the renderer reliably produces a clean 2-page PDF. The renderer can absorb modest overflow (it auto-tightens the layout once if the first pass spills to a third page), but it cannot rescue a 1,500-word guide from running long. Density beats comprehensiveness. If a sermon is unusually rich, cut a discussion question or compress a walk-through paragraph before exceeding the ceiling. If a sermon is unusually thin, you may go shorter — there is no minimum.
+
+When trimming, the priority order from least cuttable to most cuttable:
+1. Personality callouts in the walk-through (these are the highest-value, hardest to recover)
+2. Non-Scripture quote callouts (also high value)
+3. The walk-through prose around the callouts (compressible)
+4. Discussion questions beyond the third
+5. Theological anchor points beyond the third
 
 ## Tone and voice
 
 - Write *for the leader*, not *about the sermon*. The guide is a tool, not a book report.
-- Match the church's register as you've calibrated it above: warm, direct, scripturally grounded, no churchy throat-clearing.
+- Match the church's register as you've calibrated it in `church-context.md`: warm, direct, scripturally grounded, no churchy throat-clearing.
 - Refer to the preacher by first name on second reference (e.g., a first name after the first introduction with title). If the preacher is unnamed in the transcript or unfamiliar, use "the preacher" or "the speaker."
 - Don't editorialize on the sermon's quality. Don't add theology the sermon didn't make.
 - When the preacher cites a source (a theologian, an author, a Bible commentator, a hymn), name the source in the guide. This is one of the highest-value things you can do.
@@ -123,8 +137,9 @@ These are the failure modes that make AI sermon guides feel useless. Avoid them:
 
 ## When the transcript is rough
 
-Sermon transcripts are often auto-generated and messy: missing punctuation, garbled proper nouns, no speaker labels, repeated filler words. Work with what's there:
+Sermon transcripts are often auto-generated and messy: missing punctuation, garbled proper nouns, no speaker labels, repeated filler words, sometimes auto-translated from a different language. Work with what's there:
 
 - If a quoted source is mangled (e.g., "Bond Hoffer"), use your judgment to identify it (Bonhoeffer) and render it correctly. If you're not confident, render it phonetically and flag it parenthetically.
+- If proper nouns appear in another language because of auto-translation (e.g., a sermon transcript that was OCR'd in Spanish translates "Achan" as "Eakon" or "a local church" as "Hewland Street"), render them in their standard English forms.
 - If you can't tell whether something is a quote, an anecdote, or a riff, mark it as a "moment" rather than miscategorizing it.
 - If the transcript is too fragmentary to identify a coherent sermon arc, say so plainly at the top of the output and produce what you can.

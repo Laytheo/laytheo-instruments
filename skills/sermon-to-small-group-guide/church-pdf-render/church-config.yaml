@@ -1,0 +1,56 @@
+# church-pdf-render configuration
+#
+# Fill in the values below for your congregation. The build script reads
+# this file at render time. Run `python3 build.py --check` to verify your
+# configuration is valid before your first real render.
+
+church:
+  # The full church name as it should appear in the masthead and footer.
+  name: "Example Community Church"
+
+  # City and state/region/country, shown in the colophon at the end of the guide.
+  # Example: "a US city" or "Edinburgh, Scotland".
+  location: "City, State"
+
+theme:
+  # The single accent color used for the title eyebrow, section headings,
+  # callout border, drop cap, page number, and discussion question numbers.
+  # Provide as a hex string with the leading "#".
+  # Default copper: "#BA7433". Other examples: "#1f4e79" (deep blue),
+  # "#5d4037" (warm brown), "#2e7d32" (forest green).
+  accent_color: "#BA7433"
+
+  # Color used for italic callouts in the sermon walk-through. This should
+  # be visually distinct from the accent so callouts don't compete with
+  # section headings, but harmonious with it. Pick a darker, warmer or
+  # cooler shade depending on your accent.
+  # If unsure, leave the default warm brown — it pairs with most accents.
+  callout_italic_color: "#5a3d1f"
+
+  # Body font stack. The first font that's available wins. Provide system
+  # fonts and webfont fallbacks. The default works well in most browsers.
+  body_font: "'Source Serif Pro', 'Source Serif 4', 'Charter', 'Iowan Old Style', Georgia, serif"
+
+  # Heading and label font stack (used for section eyebrows, masthead, and
+  # discussion question numbers). Keep this sans-serif for editorial contrast.
+  heading_font: "'Inter', 'Helvetica Neue', Arial, sans-serif"
+
+  # Google Fonts URL for the chosen fonts, if any. The renderer adds this
+  # to the HTML so Chromium loads the fonts during PDF rendering.
+  # If you don't use Google Fonts, set this to "" (empty string) and ensure
+  # your fonts are otherwise available. The renderer falls back to system
+  # fonts gracefully.
+  google_fonts_url: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+
+masthead:
+  # Text shown in the upper-right corner of page 1 in small caps.
+  # Default "SMALL GROUP GUIDE" works for most contexts. Change to e.g.
+  # "DISCUSSION GUIDE" or "WEEKLY HANDOUT" if your church uses different
+  # terminology.
+  eyebrow: "Small Group Guide"
+
+footer:
+  # Text shown in the page footer, centered. Page number is added flush right.
+  # By default this echoes the church name and the masthead eyebrow.
+  # Leave as null to use the auto-generated default.
+  text: null

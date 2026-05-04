@@ -1,0 +1,253 @@
+/* church-pdf-render stylesheet template.
+   This file is processed by Jinja2 with custom delimiters before being
+   included in the rendered HTML; placeholder names (accent_color etc.)
+   come from church-config.yaml.
+   Layout values stay locked; only colors and fonts are configurable. */
+
+:root {
+  --accent: [[ accent_color ]];
+  --charcoal: #2b2b2c;
+  --secondary: #6b6b6d;
+  --paper: #ffffff;
+  --rule: #e5d4bf;
+  --callout-bg: #fbf4ec;
+  --callout-italic: [[ callout_italic_color ]];
+
+  /* Layout knobs (overridable by tighten retry in build.py) */
+  --body-size: 10pt;
+  --body-leading: 1.45;
+  --h2-top: 16pt;
+  --walk-gap: 7pt;
+
+  /* Font stacks */
+  --body-font: [[ body_font ]];
+  --heading-font: [[ heading_font ]];
+}
+
+@page {
+  size: letter;
+  margin: 0.6in 0.8in 0.7in 0.8in;
+  @bottom-center {
+    content: "[[ footer_text ]]";
+    font-family: var(--body-font);
+    font-style: italic;
+    font-size: 8.5pt;
+    color: #9a9a9c;
+    letter-spacing: 0.04em;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-family: var(--body-font);
+    font-style: italic;
+    font-size: 8.5pt;
+    color: var(--accent);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--charcoal);
+  font-family: var(--body-font);
+  font-size: var(--body-size);
+  line-height: var(--body-leading);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Masthead ---- */
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10pt;
+  border-bottom: 1.5pt solid var(--accent);
+  margin-bottom: 16pt;
+}
+
+.masthead .logo {
+  height: 40pt;
+  width: auto;
+}
+
+.masthead .wordmark {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 11pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.masthead .meta-eyebrow {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 8pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---- Title block ---- */
+.title-block {
+  margin: 0 0 14pt 0;
+}
+
+.title-eyebrow {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 8.5pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 5pt 0;
+}
+
+.title {
+  font-family: var(--body-font);
+  font-weight: 700;
+  font-size: 24pt;
+  line-height: 1.18;
+  color: var(--charcoal);
+  margin: 0 0 4pt 0;
+  letter-spacing: -0.005em;
+}
+
+.byline {
+  font-family: var(--body-font);
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--secondary);
+  margin: 0;
+}
+
+/* ---- Section headings ---- */
+h2.section {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 9pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: var(--h2-top) 0 0 0;
+  padding-bottom: 4pt;
+  border-bottom: 0.5pt solid var(--rule);
+}
+
+h2.section + .big-idea,
+h2.section + .anchors,
+h2.section + .questions,
+h2.section + .walkthrough {
+  margin-top: 7pt;
+}
+
+/* ---- Big idea callout ---- */
+.big-idea {
+  background: var(--callout-bg);
+  border-left: 2.5pt solid var(--accent);
+  padding: 9pt 12pt;
+  font-size: var(--body-size);
+  line-height: 1.55;
+  color: var(--charcoal);
+}
+
+.big-idea p { margin: 0; }
+
+/* ---- Theological anchors ---- */
+.anchors { margin: 0; padding: 0; list-style: none; }
+
+.anchors li {
+  position: relative;
+  padding-left: 16pt;
+  margin-bottom: 6pt;
+  line-height: 1.5;
+}
+
+.anchors li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.anchors li:last-child { margin-bottom: 0; }
+
+/* ---- Discussion questions ---- */
+.questions { margin: 0; padding: 0; list-style: none; counter-reset: q; }
+
+.questions li {
+  position: relative;
+  padding-left: 22pt;
+  margin-bottom: 6pt;
+  line-height: 1.5;
+  counter-increment: q;
+}
+
+.questions li::before {
+  content: counter(q);
+  position: absolute;
+  left: 0;
+  top: 0.5pt;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 9.5pt;
+  color: var(--accent);
+  width: 16pt;
+}
+
+.questions li:last-child { margin-bottom: 0; }
+
+/* ---- Walk-through ---- */
+.walkthrough { margin-top: 0; }
+
+.walkthrough p {
+  margin: 0 0 var(--walk-gap) 0;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.walkthrough p:last-child { margin-bottom: 0; }
+
+.walkthrough p:first-of-type::first-letter {
+  font-family: var(--body-font);
+  font-weight: 700;
+  font-size: 3.2em;
+  float: left;
+  line-height: 0.85;
+  margin: 0.05em 0.08em -0.05em 0;
+  color: var(--accent);
+}
+
+.walkthrough em,
+.walkthrough i {
+  color: var(--callout-italic);
+  font-style: italic;
+}
+
+/* ---- Colophon ---- */
+.colophon {
+  margin-top: 18pt;
+  padding-top: 7pt;
+  border-top: 0.5pt solid var(--rule);
+  text-align: center;
+  font-family: var(--heading-font);
+  font-size: 8.5pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.colophon .colophon-name {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ---- Page-break hygiene ---- */
+h2.section { break-after: avoid; page-break-after: avoid; }
+.big-idea, .anchors, .questions { break-inside: avoid; }
+.questions li, .anchors li { break-inside: avoid; page-break-inside: avoid; }
+.colophon { break-before: avoid; }
