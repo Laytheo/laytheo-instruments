@@ -15,14 +15,14 @@ Hand it a name, and it returns a markdown code block ready to paste into Obsidia
 - An idea, concept, doctrine, or instrument
 - A journal entry template
 
-Each stub follows the OTS schema: type and subtype as wikilinks, the right field set for that type, ISO date for `created`, and atomic-note discipline (one note, one entity). Public entities are verified against web sources where possible. Personal entities are left blank for private fill-in.
+Each stub follows the OTS schema: type and subtype as wikilinks, the right field set for that type, ISO date for `created`, and atomic-note discipline (one note, one entity). Public, historical, and intellectual entities are verified against web sources where possible. Personal acquaintances (friends, family, private contacts) are out of scope; generate those from Obsidian templates instead.
 
 ## Installation
 
 Drop the skill folder into your Claude skills directory. On Linux and macOS:
 
 ```
-~/.claude/skills/ontological-type-system/
+~/.claude/skills/ots-stubs/
 ```
 
 The skill is a single `SKILL.md` file. No dependencies, no scripts.
@@ -44,6 +44,7 @@ The skill returns a markdown code block. Paste it into Obsidian, save the file, 
 - It does not write Journal bodies on your behalf. The Journal type records your own dated witness; only you can produce its content.
 - It does not include personal vault conventions (custom subtypes, family naming, CSS extensions). The skill ships the universal method.
 - It does not produce essays or long-form notes about entities. Stubs are the unit of work.
+- It does not generate stubs for personal acquaintances. Friends, family, and private contacts should be generated from Obsidian templates.
 
 ## License
 
