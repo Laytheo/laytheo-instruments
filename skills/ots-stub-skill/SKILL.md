@@ -1,11 +1,11 @@
 ---
-name: ontological-type-system
+name: ots-stubs
 description: Generate Obsidian vault note stubs that conform to the Ontological Type System, a classical realist method organized around six closed root types (Person, Place, Work, Event, Idea, Journal). Use this skill whenever the user asks for a stub, vault note, Obsidian note, or schema-conformant note for any entity (a historical figure, a book, a place, an event, a concept, a journal entry), or when they reference "OTS," "ontological typing," or paste a wikilink like [[Person]] and ask Claude to fill in a note. Trigger even when the user does not say "stub" explicitly: phrases like "make me a note for Augustine," "create an Obsidian entry for the Council of Nicaea," or "I want to add Tolkien to my vault" all warrant this skill. The output is always a markdown code block ready to paste into Obsidian.
 ---
 
 # Ontological Type System
 
-This skill produces Obsidian vault notes that conform to the Ontological Type System, a classical realist method for personal knowledge management. The full methodology is described at [laytheo.com/instruments/ontological-type-system](https://laytheo.com/instruments/ontological-type-system) and in the [method README](../../methods/ontological-type-system/README.md). Read those before adopting the method itself; this skill assumes the user has already chosen to use the system and just needs help producing notes quickly.
+This skill produces Obsidian vault notes that conform to the Ontological Type System, a classical realist method for personal knowledge management. The full methodology is described at [laytheo.com/instruments/ontological-type-system](https://laytheo.com/instruments/ontological-type-system) and in the project's [README](./README.md). Read those before adopting the method itself; this skill assumes the user has already chosen to use the system and just needs help producing notes quickly.
 
 ## What the system commits to
 
@@ -40,7 +40,9 @@ Every stub the skill produces follows these rules. They are not optional.
 
 **Empty fields are fine.** When a field doesn't apply or the answer is unknown, leave it blank rather than fabricating. A historical figure's `email` field stays empty. An obscure work's `publication_year` stays empty if uncertain. The schema tolerates blanks; it does not tolerate hallucinations.
 
-**Wikilink only entities of independent note.** Relational list fields (`associations`, `spouses`, `partners`, `children`, `parents`, `participants`, `key_people`, `creator`, etc.) hold references to other entities. Only wikilink an entity if it plausibly merits its own note in the user's vault, meaning a person, place, or work of independent public, historical, or intellectual significance. Private family members (minor children, non-public parents and spouses, friends not otherwise notable) stay as plain text strings. The vault is built on real connections, not orphan stubs; a wikilink is a promise that the target is worth a note. When in doubt, default to plain text and let the user upgrade to a wikilink later. The same logic governs `associations`: wikilink real entities the user is likely to encounter, not abstract topics.
+**Wikilink only entities of independent note.** Relational list fields (`associations`, `spouses`, `partners`, `children`, `parents`, `participants`, `key_people`, `creator`, etc.) hold references to other entities. Only wikilink an entity if it plausibly merits its own note in the user's vault, meaning a person, place, or work of independent public, historical, or intellectual significance. Private family members (minor children, non-public parents and spouses, friends not otherwise notable) stay as plain text strings. The vault is built on real connections, not orphan stubs; a wikilink is a promise that the target is worth a note. When in doubt, default to plain text and let the user upgrade to a wikilink later.
+
+**Be strict with associations.** The `associations` field is the most easily abused list in the schema. It tempts the user to dump every loosely-related entity into the note, which clutters the graph and dilutes the meaning of a wikilink. Associations should name the few entities without which this entity cannot be understood. Apply two tests. First, the productive-link test: would a reader genuinely benefit from following this wikilink from this note? Second, the defining-relation test: if this association were removed, would something essential about the entity be lost? Most notes have 2 to 5 associations; some have zero. More than five is a strong signal that the list is doing biographical or topical inventory rather than naming defining relations. Career history, employer institutions, and topical fields generally do not earn association slots; they belong in body prose. Defining works (the works most central to a person's identity, like *Principia Mathematica* for Newton) may stay in associations even though they are also Work notes elsewhere. Resist the urge to be comprehensive; this list is not a CV.
 
 ## The six type templates
 
@@ -64,9 +66,21 @@ parents: []
 associations: []
 created: YYYY-MM-DD
 ---
+
+## Bio
+
+[One concise paragraph, 2 to 4 sentences, describing who the person is or was and why they matter.]
 ```
 
-Notes on Person: `subtype` examples include `"[[Theologian]]"`, `"[[Philosopher]]"`, `"[[Author]]"`, `"[[Scientist]]"`. `roles` is a list of plain strings (lowercase, e.g., `bishop`, `novelist`, `professor`). `spouses`, `partners`, `children`, `parents` reference other people; wikilink them only when the related person is of independent note (a published author, a public figure, a historically documented relation), and use plain text otherwise. Private family members (minor children, non-public parents and spouses) stay as plain strings. Use `partners` for non-marital relationships. Omit fields entirely (don't just leave blank) if they would never apply to the entity in question (e.g., omit `spouses` for someone who never married, rather than leaving it as `[]`).
+Notes on Person:
+
+**Subtype is blank by default.** Person subtypes are not used to describe what someone does for a living. Vocational labels like "researcher," "musician," "theologian," "author," "scientist," and "politician" are descriptive, not categorical, and belong in `roles`, not `subtype`. The subtype field on other types (Idea, Place, Work) does categorical work, distinguishing modes of being like Concept versus Phenomenon, or Location versus Institution. There is no analogous ontological taxonomy of kinds-of-person; humans are humans. Leave `subtype` blank for Person notes by default. The user may, in their own vault, develop a small categorical distinction (for example, a separation between historical, contemporary, and biblical figures, where the evidentiary basis and field expectations genuinely differ), but the skill does not generate Person subtypes; it leaves the slot empty and lets the user decide.
+
+**Roles carry the descriptive work.** `roles` is a list of plain lowercase strings (e.g., `bishop`, `novelist`, `professor`, `physicist`). Keep the list tight, typically 3 to 5 items; the bio carries any further descriptive nuance. Roles should name the person's principal vocations and identities, not exhaustively catalog every job they held.
+
+**Relations.** `spouses`, `partners`, `children`, `parents` reference other people; wikilink them only when the related person is of independent note (a published author, a public figure, a historically documented relation), and use plain text otherwise. Private family members (minor children, non-public parents and spouses) stay as plain strings. Use `partners` for non-marital relationships. Omit fields entirely (don't just leave blank) if they would never apply to the entity in question (e.g., omit `spouses` for someone who never married, rather than leaving it as `[]`).
+
+**Bio.** Person notes include a `## Bio` section: one concise paragraph of 2 to 4 sentences describing who the person is or was and why they matter. The bio should add what the schema cannot carry: significance, contribution, moral or historical weight, distinguishing context, and career history that does not earn an association slot. Name things truly, including grave moral facts where those are central to the person's historical significance; the bio should be plain rather than performative, letting facts carry their own weight. This skill is intended for entities of public, historical, or intellectual note; personal acquaintances belong in Obsidian templates, not in this skill.
 
 ### Place
 
@@ -141,7 +155,7 @@ created: YYYY-MM-DD
 [One concise paragraph explaining the idea.]
 ```
 
-Notes on Idea: `subtype` examples include `"[[Concept]]"`, `"[[Doctrine]]"`, `"[[Phenomenon]]"`, `"[[Instrument]]"`, `"[[Lexeme]]"`. `definition` is a single quoted sentence. `key_people` is a list of wikilinks to Person notes who originated, defended, or are closely associated with the idea. The Idea type is the only type that gets a default body section (`## Description`); fill it with one paragraph in plain prose.
+Notes on Idea: `subtype` examples include `"[[Concept]]"`, `"[[Doctrine]]"`, `"[[Phenomenon]]"`, `"[[Instrument]]"`, `"[[Lexeme]]"`. `definition` is a single quoted sentence. `key_people` is a list of wikilinks to Person notes who originated, defended, or are closely associated with the idea. The Idea type carries a default `## Description` body section; fill it with one paragraph in plain prose.
 
 ### Journal
 
@@ -161,7 +175,7 @@ Notes on Journal: `subtype` may be `"[[Dream]]"`, `"[[Sermon Note]]"`, or left b
 
 When generating a stub for a public or historical entity (a real person, a published work, a known place, a documented event, a recognized idea), use web search to verify uncertain fields. Birth dates, death dates, publication years, founding dates, geographic details, and other factual fields should be researched rather than guessed. If a field cannot be verified with reasonable confidence, leave it blank.
 
-Do not research personal entities. If the user asks for a stub about their friend, family member, employer, or any private entity, generate a structurally complete template with empty fields and let the user fill it in. Do not search the web for personal information about individuals.
+This skill is intended for entities of public, historical, or intellectual note. Personal acquaintances (friends, family members, employers, private contacts) are not in scope; the user should generate those notes from Obsidian templates rather than from this skill, since the skill's research behavior, association rules, and bio conventions are tuned for public-record entities.
 
 If web search is unavailable in the current environment, generate the stub from training data and explicitly note (in a brief line above the code block) that fields could not be verified and the user should double-check dates and other specifics before relying on them.
 
@@ -198,7 +212,7 @@ Output:
 ```yaml
 ---
 type: "[[Person]]"
-subtype: "[[Author]]"
+subtype: 
 alternate_names:
   - John Ronald Reuel Tolkien
   - JRR Tolkien
@@ -209,12 +223,17 @@ roles:
   - novelist
   - philologist
   - professor
+  - essayist
 associations:
-  - "[[Oxford]]"
   - "[[The Inklings]]"
   - "[[Subcreation]]"
+  - "[[C.S. Lewis]]"
 created: 2026-04-27
 ---
+
+## Bio
+
+J.R.R. Tolkien was an English philologist and Oxford professor of Anglo-Saxon and English language and literature, best known as the author of *The Hobbit* and *The Lord of the Rings*. His invented languages, the elaborate mythology of Middle-earth, and his theoretical writings on fantasy ("On Fairy-Stories") shaped the modern fantasy genre and remain central to debates about subcreation and the moral seriousness of myth-making. A devout Catholic and member of the Inklings alongside C.S. Lewis, he understood his fiction as participating in the larger pattern of creation.
 ```
 
 ### Example 2: Single Idea stub with body
@@ -255,7 +274,7 @@ Person note for Tolkien:
 ```yaml
 ---
 type: "[[Person]]"
-subtype: "[[Author]]"
+subtype: 
 [...full stub...]
 ---
 ```
@@ -280,31 +299,6 @@ subtype: "[[Location]]"
 ---
 ```
 
-### Example 4: Personal entity (no research)
-
-User: "make a Person stub for my friend Andrew"
-
-Output:
-
-```yaml
----
-type: "[[Person]]"
-subtype: "[[Friend]]"
-alternate_names: []
-birth_date: 
-nationality: 
-roles: []
-spouses: []
-partners: []
-children: []
-parents: []
-associations: []
-created: 2026-04-27
----
-```
-
-(No web search performed; fields left blank for the user to fill in privately.)
-
 ## What this skill does not do
 
 This skill produces stubs. It does not produce essays, encyclopedia articles, or long-form notes about entities. The Ontological Type System is built on atomic notes; a stub that becomes a 2000-word essay about Augustine has missed the point. Body text, when present, should be one paragraph or shorter.
@@ -312,6 +306,8 @@ This skill produces stubs. It does not produce essays, encyclopedia articles, or
 This skill does not invent new types. The six root types are closed. If the user proposes a seventh type, push back and find which of the six the candidate actually fits.
 
 This skill does not include user-specific defaults. The user's home church, their preferred subtypes, their personal vault conventions, their custom CSS or template extensions, are not part of this skill. The skill ships the universal method.
+
+This skill does not generate notes for personal acquaintances. The Person rules (especially the bio convention and the strict association test) are tuned for public, historical, or intellectual figures. Friends, family members, and private contacts should be generated from Obsidian templates instead.
 
 This skill does not write Journal entries on behalf of the user. The Journal type records the user's own dated witness; only the user can produce its content. The skill can produce a Journal template (as shown above) for the user to fill in, but should not generate the body prose itself unless the user provides the content and asks for formatting help.
 
