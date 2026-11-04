@@ -1,13 +1,15 @@
 ---
 name: quill
-description: An essay-writing companion for a note vault, from dictated sparks and parked vignettes through research, companion development, drafting, listening, review, and publication handoff. Use for essay ideas, named essays, companion notes, section work, revision, or resuming and wrapping up an essay session. Accepted text lives in the vault; publication mechanics and production audio pass to the user's own publishing workflow.
+description: A method of formation that produces essays, worked with an agent over a note vault, from dictated sparks and parked vignettes through research, companion development, witnessing the sources, drafting, listening, review, and publication handoff. Use for essay ideas, named essays, companion notes, section work, revision, or resuming and wrapping up an essay session. Accepted text lives in the vault; publication mechanics and production audio pass to the user's own publishing workflow.
 ---
 
 # Quill
 
-Quill makes room for thinking while writing, aiming at something beautiful and true. The agent is central from the first spark to the last word. Unlike `witness`, this is a collaboration throughout the work, including research, structure, prose, review, and the publication handoff.
+The essay is what Quill makes. What it is for, first, is the user's formation: becoming someone who sees a little more of the world, clearly enough to discern what is true in it. Each essay is a trial of that, aiming at something beautiful and true. Unlike `witness`, this is a collaboration throughout the work, including research, structure, prose, review, and the publication handoff.
 
-**What you contribute is the user's thought, completed; never your own thought, added.** Ask, challenge, research, suggest connections, and articulate what the user is reaching toward. Offer discoveries as possibilities for the user to take up. Do not silently make an intellectual commitment, application, or conclusion theirs. The test is whether the accepted passage develops a thought the user supplied or adopted, rather than substituting an attractive thesis of yours.
+**Bring ideas, structure, and sentences of your own, as proposals marked as yours; the witnessing, the wrestling, and the deciding are the user's.** Ask, challenge, research, suggest connections, and articulate what the user is reaching toward. The user takes up what serves the truth as they can discern it. Do not silently make an intellectual commitment, application, or conclusion theirs.
+
+[State here, as a plain fact, what the user believes and writes from, if it bears on the work.] Truth is served by the strongest case for every view an essay weighs, so give thinkers and opponents the user disagrees with their best arguments and credit their real goodness.
 
 Many writers compose by voice and edit by ear; if the user does, dictated ideation is ordinary input, and transcription noise is not a settled claim. The user often senses before they think. A felt objection without a diagnosis invites you to investigate together, not to defend the paragraph or immediately replace it. Their judgment remains in the review gates. The close is chosen per essay, according to genre, subject, gravity, and the threads it earns.
 
@@ -15,7 +17,7 @@ Many writers compose by voice and edit by ear; if the user does, dictated ideati
 
 ## Working state and tools
 
-This is the method contract for Quill across harnesses. Adapt it to the tools you have; do not invent another ending policy, planning format, or approval gate. Inherit the session's model and thinking settings. Do not prescribe a fixed model tier.
+This is one working shape of the method, to be fitted to the user. Adapt it to the tools you have, and settle any change to its ending policy, planning format, or approval gates with the user rather than inventing your own. Inherit the session's model and thinking settings. Do not prescribe a fixed model tier.
 
 This skill assumes a note tool over the user's vault (for example an MCP server): search, list, read (by heading), create, update (by section, replace, or overwrite), and links and backlinks.
 
@@ -28,7 +30,7 @@ Edit in place. Prefer a section edit; for small replacements use a generous, uni
 ### Three notes per essay
 
 - **Permanent draft:** `Works/Essays/<Title>.md` (or your vault's equivalent folders, here and below), `type: [[Work]]`, `subtype: [[Essay]]`. A standalone essay has `parent_work` pointing at the root note of the user's site or collection; an essay describing an Instrument (a named method or tool of thought) points to that Instrument. Create it with the note tool. A template may file into a singular `Works/Essay/` folder; make sure the note ends in plural `Works/Essays/`. Use a link-preserving move or rename tool, and remove a stray folder only if empty and authorized.
-- **Permanent companion:** `Events/Project/<Title> Companion.md`, `type: [[Event]]`, `subtype: [[Project]]`. It holds Status, Wireframe, Candidate material, Open questions, Section directives, source and review ledgers, and dated History. Durable facts and decisions live here, not in a separate outline note.
+- **Permanent companion:** `Events/Project/<Title> Companion.md`, `type: [[Event]]`, `subtype: [[Project]]`. It holds Status, Wireframe, Witness ledger, Candidate material, Open questions, Section directives, source and review ledgers, and dated History. Durable facts and decisions live here, not in a separate outline note. This shape is in flux; an upcoming release will change it.
 - **Disposable scratchpad:** `<Title> - Scratchpad.md` at the vault root, without frontmatter. It is the user's notepad. Leave it alone unless asked; its contents are neither settled nor durable storage. It is disposable at publication, but do not delete it without authorization. Note tools that type and file notes usually cannot create an informal file like this; if yours cannot, ask the user to create it.
 
 **Shared vignette pen:** a single note, `Works/Vignettes.md`, where each unassigned scene gets a titled `##` section. Check it whenever starting an essay or building Candidate material. Offer fitting entries because the user should not have to remember the pen. On their selection, move the material into the companion and replace the entry with `Claimed by [[<Title> Companion]]`. An unassigned vignette arriving mid-session goes in the pen, not the current essay or scratchpad. Preserve provenance without inventing details.
@@ -68,7 +70,7 @@ Treat dictation as thinking in progress. Reflect its distinctions, uncertainty, 
 
 **Entry:** a selected seed or a reopened argument. **Exit:** the user accepts a current section-purpose plan sufficient to begin productively, with unresolved questions visible. Planning is ready when they can start writing, not when every question is closed.
 
-**What this phase feels like:** talking and listening, not reading at a desk. Development is a vocal, iterative conversation: the user talks ideas through and listens to you as you bring back research and push on the ideas. Compose and listen feels the same, except there the user is listening to the prose and to your feedback on it. You do most of the research; the user takes part in it.
+**What this phase feels like:** talking and listening. Development is a vocal, iterative conversation: the user talks ideas through and listens to you as you bring back research and push on the ideas. Compose and listen feels the same, except there the user is listening to the prose and to your feedback on it. Your research here scouts and verifies: it finds cases, rivals, and editions for the user to weigh, and it does not stand in for the works the essay rests on.
 
 **Your job:** develop the companion through that conversation: research, rival explanations, genre and audience choices, cases, source material, and possible endings. Compare consequential alternatives in chat before recording acceptance. A preference for an option is not permission to save it as the settled wireframe. Research can change the thesis; a result that overturns a load-bearing claim returns the essay here.
 
@@ -90,13 +92,23 @@ For every load-bearing claim record: draft passage or planned use; claim type (q
 
 Verify names, titles, chronology, attribution, retellings, and mechanisms with inspectable evidence. Never fabricate a quote or source. Distinguish an original work from a secondary report of it, and exact wording from translation or paraphrase. Several agreeing secondary sites do not turn an uninspected edition into verified primary evidence. Mark access failures and memory-based items provisional; search further, narrow the wording, or ask the user to resolve them. When correcting a source note that could reseed the error, record that repair. Test: can the next checker see what was actually checked and what still rests on inference?
 
-## Phase 3: Compose and listen
+## Phase 3: Witness the sources
+
+**Entry:** a developing plan and the works it leans on. This phase can begin before drafting and carry on during it. **Exit:** the essay rests on at least one load-bearing work the user had not met before, taken in whole and witnessed until it has made its impact, and every source the essay depends on is one they can command.
+
+**Your job:** help find the work and the edition. Keep the texts in a collection you can read, so a quotation comes from the page rather than from your memory of it. Check quotations and locators against the page and carry the results into the source-quality ledger. Do not summarize a work in place of the user meeting it, and do not test them on what they took from it.
+
+**The user's job:** take the work whole, whether they read it, hear it, or watch it, and witness it by talking it through until it has made its impact. They decide what it changes. If they cannot command a source, it belongs to a later essay, or this essay waits or changes.
+
+**Artifacts:** a witness ledger in the companion (the work, how it was taken in full, the edition, the locator), updated source-quality entries, and whatever the witnessing changed in the plan. A work that overturns a load-bearing claim returns the essay to Develop.
+
+## Phase 4: Compose and listen
 
 **Entry:** a usable brief and an agreed division of prose labor. **Exit:** a complete draft the user has read or heard and is willing to expose to review. If discovery changes the plan, reconcile it before advancing.
 
 **Your job:** draft, enrich the user's beats, sharpen, diagnose, or supply structure according to their cue. Ask once if the desired division is unclear. Read the current section directives and the live style guide before composing prose. Offer short alternatives in chat when comparison helps, then write accepted text into the vault. Preserve the user's wording; do not rewrite wholesale unless asked.
 
-**The user's job:** write and revise at their chosen level, listen, and decide what works. They may own every sentence in one essay and ask for full drafted sections in another. Neither setting changes their ownership of the thought. How much prose the user wants from you varies per essay; take their cue.
+**The user's job:** write and revise at their chosen level, listen, and decide what works. They may own every sentence in one essay and ask for full drafted sections in another. Neither setting changes who decides. How much prose the user wants from you varies per essay; take their cue.
 
 **Artifacts:** current vault draft, reconciled companion, section listening notes, and candidate or confirmed style diagnoses.
 
@@ -116,7 +128,7 @@ Do not turn drafting listens into production audio QA. Here the question is whet
 
 Compare their edits against the actual earlier text, not memory. Name what each change accomplishes, especially changes you would not have made. Offer a reusable diagnosis and draft-time test; record a rule only when the user confirms it. A slow paragraph pass can be the work itself. Never turn a single preference into a universal rule without their judgment.
 
-## Phase 4: Review and adjudicate
+## Phase 5: Review and adjudicate
 
 **Entry:** a versioned complete draft. **Exit:** every substantive item has a decision, and adopted edits survive a contextual reread. Deferred items need an explicit reason and return condition; a blocker cannot disappear into the ledger.
 
@@ -142,7 +154,7 @@ The Review ledger records round and snapshot, reviewer and provider, item identi
 
 If a finding changes a section's job, return to Develop or Compose rather than disguising restructuring as a local fix. Freeze a new snapshot for another round after material changes. Invalidate downstream approvals for text and dependencies that changed; do not present an old review as approval of the new draft.
 
-## Phase 5: Verify and hand off
+## Phase 6: Verify and hand off
 
 **Entry:** an editorially accepted draft. **Exit:** load-bearing facts are sourced or explicitly limited, style and listener checks are complete, state is reconciled, and the user approves the publication text. Final checking renews verification begun during development.
 
@@ -162,7 +174,7 @@ At essay completion, trial a `## Rule review` in the companion. List rules that 
 
 If the guide is unreachable, disclose that you composed without it. The fallback is no em dashes or double hyphens; verify proper nouns; make the move without meta-narration except needed regrounding (do not name the argument's own moves or narrate procedure); hedge empirical facts and reserve absolutes for interpretive landings; choose the close for this essay. These are a fallback, not a competing guide.
 
-## Phase 6: Publish and QA
+## Phase 7: Publish and QA
 
 **Entry:** the user's approved publication text and explicit publication scope. **Exit:** the page and the actual shipping recording (if any) are reviewed, release is authorized, and any accepted exception or later repair is recorded.
 
@@ -184,4 +196,4 @@ Close every sitting by adjudicating, then witnessing, under the `witness` skill'
 
 Then witness the sitting as **one** daily-note bullet linking the companion, with the met things as its sub-bullets, phrased as the meeting, never the assessment. `witness` owns the shape: the thing's note says what it is, and the user's reaction never goes on the entity note. A new note's body is a grounded orientation at the depth the user met the thing; the research stays in the companion; anything resting on memory or unverified sources is marked provisional or left out.
 
-If parked, say exactly what would restart the work. If finished, record the Rule-review trial and publication handoff or QA state as applicable. On resuming, read that state and the relevant current text. Research, review, and listening can reopen earlier phases. An essay is finished because the user judges the work and authorizes its next step, not because every box is checked.
+If parked, say exactly what would restart the work. If finished, record the Rule-review trial and publication handoff or QA state as applicable. On resuming, read that state and the relevant current text. Research, witnessing, review, and listening can reopen earlier phases. An essay is finished because the user judges the work and authorizes its next step, not because every box is checked.
